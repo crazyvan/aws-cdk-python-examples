@@ -3,12 +3,12 @@ AWS_ACCOUNT := 194086103172
 AWS_REGION := eu-west-2
 
 .PHONY: get-aws-credentials
-get-aws-credenials:
+get-aws-credentials:
 	export AWS_PROFILE=people-data-system && \
 	npx aws-azure-login --no-sandbox --mode gui
 
 .PHONY: create-bootstrap-stack
-bootstrap:
+create-bootstrap-stack:
 	cdk bootstrap aws://${AWS_ACCOUNT}/${AWS_REGION}
 
 .PHONY:	delete-bootstrap-stack
